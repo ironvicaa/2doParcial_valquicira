@@ -1,7 +1,9 @@
 {
   "name": "2doParcial_valquicira",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {
+      "enabled": false
+    }
   },
   "type": "angular"
 }

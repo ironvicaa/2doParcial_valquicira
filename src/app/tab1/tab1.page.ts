@@ -1,12 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { DataMoviesService } from '../services/data-movies.service';
+import { Genre } from '../interfaces/interfaces';
 
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
-export class Tab1Page {
+export class Tab1Page implements OnInit {
 
-  constructor() {}
+  discover: Genre[] = [];
+
+  constructor(private dataMovies: DataMoviesService) {}
+
+  // ngOnInit(): void {
+  //   this.dataMovies.getDiscover().
+  //       subscribe(
+  //         console.log
+  //       );
+  // }
+
+  ngOnInit(): void {
+    this.dataMovies.getDiscover().
+        subscribe(
+          resp => {
+            console.log
+            this.discover = resp.genres;
+        });
+  }
 
 }
